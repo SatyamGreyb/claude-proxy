@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: claude-proxy
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    envVars:
+      - key: CLAUDE_API_KEY
+        sync: false
