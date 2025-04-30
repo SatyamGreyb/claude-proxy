@@ -34,3 +34,9 @@ def call_claude():
         return jsonify({"reply": result.get("content", "No reply from Claude.")})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+        
+from flask import send_file
+
+@app.route("/openapi.json")
+def serve_openapi():
+    return send_file("openapi.json", mimetype="application/json")
